@@ -1,4 +1,4 @@
-package com.jungwuk.study.sentenceseperator;
+package com.jungwuk.study.sentenceseparator;
 
 import org.apache.commons.io.FileUtils;
 
@@ -22,8 +22,8 @@ public class Main {
             String fileText = FileUtils.readFileToString(sourceFile); //TODO : 인코딩 처리
             for (String article : fileText.split("=>")) {
                 String[] separatedArticle = article.split("\\\\");
-                ArrayList<String> engSentences = (ArrayList<String>) split(separatedArticle[0].replace("\r", "").replace("\n", ""));
-                ArrayList<String> korSentences = (ArrayList<String>) split(separatedArticle[1].replace("\r", "").replace("\n", ""));
+                ArrayList<String> engSentences = (ArrayList<String>) separate(separatedArticle[0].replace("\r", "").replace("\n", ""));
+                ArrayList<String> korSentences = (ArrayList<String>) separate(separatedArticle[1].replace("\r", "").replace("\n", ""));
 
                 System.out.println(separatedArticle[1]);
                 if (separatedArticle.length != 2) {
@@ -46,7 +46,7 @@ public class Main {
         }
     }
 
-    static List<String> split(String s){
+    static List<String> separate(String s){
         ArrayList<String> strings = new ArrayList<String>();
         StringBuilder sb = new StringBuilder();
         HashSet<Character> tokenSet = new HashSet<Character>();

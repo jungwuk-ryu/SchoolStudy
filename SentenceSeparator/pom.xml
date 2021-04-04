@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.jungwuk.study.sentenceseperator</groupId>
-    <artifactId>sentence-seperator</artifactId>
+    <groupId>com.jungwuk.study.sentenceseparator</groupId>
+    <artifactId>sentence-separator</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -26,7 +26,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.jungwuk.study.sentenceseperator.Main</mainClass>
+                            <mainClass>com.jungwuk.study.sentenceseparator.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
