@@ -10,6 +10,8 @@ import java.util.List;
 
 // TODO : 예외처리
 public class Main {
+    static final String[] FILTER = new String[]{"Mrs.", "Mr.", "U.S."};
+
     public static void main(String[] args) {
         /**
          * \으로 해설 구분 (wow\와우), " \n"으로 새 본문
@@ -57,9 +59,37 @@ public class Main {
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             char c = chars[i];
+            boolean shouldSkip = false;
+
+            for (String word : FILTER) {
+                if (word.charAt(0) == c) {
+                    for (int j = 1; j < word.length(); j++) {
+                        if (j < word.length() - 1) {
+                            if (word.charAt(j) != chars[i + j]) {
+                                break;
+                            }
+                        } else {
+                            if (word.charAt(j) == chars[i + j]) {
+                                shouldSkip = true;
+                            }
+                        }
+                    }
+                }
+
+                if (shouldSkip) {
+                    sb.append(word);
+                    i += word.length() - 1;
+                    break;
+                }
+            }
+
+            if (shouldSkip) {
+                continue;
+            }
+
             sb.append(c);
             if(tokenSet.contains(c)){
-                if(c == '.' && i + 1 < chars.length) {
+                if(i + 1 < chars.length) {
                     char nextChar = chars[i + 1];
                     if (nextChar == '“' || nextChar == '"' || nextChar == '”') {
                         sb.append(nextChar);
