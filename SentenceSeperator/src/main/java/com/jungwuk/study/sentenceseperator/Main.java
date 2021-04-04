@@ -16,7 +16,7 @@ public class Main {
          */
 
         StringBuilder sb = new StringBuilder();
-        File sourceFile = new File("C:/Users/vojou/Desktop/projects/SentenceSeperator/target/source.txt");
+        File sourceFile = new File("source.txt");
 
         try {
             String fileText = FileUtils.readFileToString(sourceFile); //TODO : 인코딩 처리
@@ -40,7 +40,7 @@ public class Main {
                 sb.append("\n\n---------------\n\n");
             }
 
-            FileUtils.write(new File("C:/Users/vojou/Desktop/projects/SentenceSeperator/target/result.txt"), sb.toString());
+            FileUtils.write(new File("result.txt"), sb.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
